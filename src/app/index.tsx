@@ -1,10 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { Image } from 'expo-image';
 export default function HomeScreen() {
   return (
     <View style={styles.screen}>
-
-      <Image source={{}}/>
 
       <View style={styles.container}>
         <Text style={styles.title}>Home screen loaded</Text>
