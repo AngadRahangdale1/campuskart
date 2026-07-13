@@ -1,9 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { initializeAuth, getReactNativePersistence } from "firebase/auth";
-import { getAnalytics } from "firebase/analytics";
-import { getFirestore} from "firebase/firestore";
-import AsysncStorage from '@react-native-async-storage/async-storage';
+import { getAuth } from "firebase/auth";
+import { getFirestore } from "firebase/firestore";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -22,10 +20,6 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-export const auth = initializeAuth (app, { // In lamen terms, this line initializes the Firebase Authentication service for your app. It sets up the authentication system using the configuration provided in the firebaseConfig object. The getReactNativePersistence(AsyncStorage) part specifies that the authentication state should be persisted using AsyncStorage, which is a storage system for React Native apps. This means that the user's authentication state will be saved across app restarts, allowing them to stay logged in even after closing and reopening the app.
-    persistence: getReactNativePersistence(AsysncStorage),
-});
+export const auth = getAuth(app);
 
-
-const analytics = getAnalytics(app);
 export const db = getFirestore(app);
